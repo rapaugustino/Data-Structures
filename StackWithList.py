@@ -1,3 +1,8 @@
+class StackEmptyException(Exception):
+    """Custom exception to be raised when stack-related operations fail due to the stack being empty."""
+    pass
+
+
 class Stack:
     """
     A class used to represent a Stack.
@@ -43,11 +48,11 @@ class Stack:
 
         Raises
         ------
-        Exception
+        StackEmptyException
             If the stack is empty.
         """
         if self.is_empty():
-            raise Exception("Stack is empty")
+            raise StackEmptyException("Stack is empty")
         return self.items.pop()
 
     def peek(self):
@@ -56,58 +61,9 @@ class Stack:
 
         Raises
         ------
-        Exception
+        StackEmptyException
             If the stack is empty.
         """
         if self.is_empty():
-            raise Exception("Stack is empty")
+            raise StackEmptyException("Stack is empty")
         return self.items[-1]
-
-
-# Testing the Stack class
-stack = Stack()
-
-# Test pushing elements
-stack.push(1)
-stack.push(2)
-stack.push(3)
-
-# Test stack content after pushes
-print(stack.items)  # Expected: [1, 2, 3]
-
-# Test peeking the top element
-print(stack.peek())  # Expected: 3
-
-# Test popping the top element
-print(stack.pop())  # Expected: 3
-
-# Test stack content after pop
-print(stack.items)  # Expected: [1, 2]
-
-# Test if stack is empty
-print(stack.is_empty())  # Expected: False
-
-# Test the size of the stack
-print(stack.size())  # Expected: 2
-
-# Test popping all elements to empty the stack
-print(stack.pop())  # Expected: 2
-print(stack.pop())  # Expected: 1
-
-# Test if stack is empty after popping all elements
-print(stack.is_empty())  # Expected: True
-
-# Test the size of the stack after popping all elements
-print(stack.size())  # Expected: 0
-
-# Test popping from an empty stack (should raise an exception)
-try:
-    stack.pop()
-except Exception as e:
-    print(e)  # Expected: Exception("Stack is empty")
-
-# Test peeking from an empty stack (should raise an exception)
-try:
-    stack.peek()
-except Exception as e:
-    print(e)  # Expected: Exception("Stack is empty")

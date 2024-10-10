@@ -1,7 +1,6 @@
 class Node:
     """
     A class used to represent a Node in a linked list.
-
     Attributes
     ----------
     data : any
@@ -19,12 +18,10 @@ class Node:
 class Stack:
     """
     A class used to represent a Stack using a linked list.
-
     Attributes
     ----------
     top : Node
         The top node of the stack.
-
     Methods
     -------
     size():
@@ -62,7 +59,6 @@ class Stack:
     def pop(self):
         """
         Removes and returns the top element of the stack.
-
         Raises
         ------
         Exception
@@ -78,7 +74,6 @@ class Stack:
     def peek(self):
         """
         Returns the top element of the stack without removing it.
-
         Raises
         ------
         Exception
@@ -91,12 +86,10 @@ class Stack:
 
 # Testing the Stack class
 stack = Stack()
-
 # Test pushing elements
 stack.push(1)
 stack.push(2)
 stack.push(3)
-
 # Test stack content after pushes
 current = stack.top
 stack_content = []
@@ -104,13 +97,10 @@ while current:
     stack_content.append(current.data)
     current = current.next
 print(stack_content)  # Expected: [3, 2, 1]
-
 # Test peeking the top element
 print(stack.peek())  # Expected: 3
-
 # Test popping the top element
 print(stack.pop())  # Expected: 3
-
 # Test stack content after pop
 current = stack.top
 stack_content = []
@@ -118,29 +108,22 @@ while current:
     stack_content.append(current.data)
     current = current.next
 print(stack_content)  # Expected: [2, 1]
-
 # Test if stack is empty
 print(stack.is_empty())  # Expected: False
-
 # Test the size of the stack
-print(stack.size()) # Expected: 2
-
+print(stack.size())  # Expected: 2
 # Test popping all elements to empty the stack
 print(stack.pop())  # Expected: 2
 print(stack.pop())  # Expected: 1
-
 # Test if stack is empty after popping all elements
 print(stack.is_empty())  # Expected: True
-
 # Test the size of the stack after popping all elements
 print(stack.size())  # Expected: 0
-
 # Test popping from an empty stack (should raise an exception)
 try:
     stack.pop()
 except Exception as e:
     print(e)  # Expected: Exception("Stack is empty")
-
 # Test peeking from an empty stack (should raise an exception)
 try:
     stack.peek()
